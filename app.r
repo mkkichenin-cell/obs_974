@@ -32,6 +32,14 @@ ui <- page_navbar(
                                choices = c("Nord","Sud","Est", "Ouest", "Plusieurs zones"),
                                selected =  c("Nord", "Sud", "Est","Ouest", "Plusieurs zones")),
                              
+                             checkboxGroupInput(inputId = "species", label = "Sélectionner une espèce", choices = levels(iris$Species)),
+                             
+                             selectInput(
+                               "var",
+                               label = "Choisir une zone",
+                               choices = c("Nord","Sud","Est", "Ouest", "Plusieurs zones"),
+                               selected =  c("Nord", "Sud", "Est","Ouest", "Plusieurs zones")),
+                             
                              checkboxGroupInput(inputId = "species", label = "Sélectionner une espèce", choices = levels(iris$Species))
                              
             )
