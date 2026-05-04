@@ -18,7 +18,7 @@ iris <- iris
 
 ui <- page_navbar( 
   title = "L'OBSEVATOIRE DU FOOTBALL",
-  theme = bs_theme(bg = "white", fg = "black", primary = "#FCC780",
+  theme = bs_theme(bg = "white", fg = "black", primary = "#FCe",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
   
