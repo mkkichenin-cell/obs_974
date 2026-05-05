@@ -15,7 +15,7 @@ library(cowplot)
 
 
 ui <- page_navbar( 
-  title = "OBSERVATOIRE DU FOOTBALL by Michaël KICHENIN",
+  title = "STATS FOOTBALL974 by Michaël KICHENIN",
   theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
