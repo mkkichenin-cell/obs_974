@@ -14,44 +14,43 @@ library(treemapify)
 library(cowplot)
 
 
-iris <- iris
-
 ui <- page_navbar( 
-  title = "L'OBSEVATOIRE DU FOOTBALL",
-  theme = bs_theme(bg = "white", fg = "black", primary = "#FCe",
+  title = "OBSERVATOIRE DU FOOTBALL by Michaël KICHENIN",
+  theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
   
-  nav_panel("Statistiques générales",
-            
-            p( sidebarPanel( width = 2, 
-                             
-                             selectInput(
-                               "var",
-                               label = "Choisir une zone",
-                               choices = c("Nord","Sud","Est", "Ouest", "Plusieurs zones"),
-                               selected =  c("Nord", "Sud", "Est","Ouest", "Plusieurs zones")),
-                             
-                             checkboxGroupInput(inputId = "species", label = "Sélectionner une espèce", choices = levels(iris$Species)),
-                             
-                             selectInput(
-                               "var",
-                               label = "Choisir une zone",
-                               choices = c("Nord","Sud","Est", "Ouest", "Plusieurs zones"),
-                               selected =  c("Nord", "Sud", "Est","Ouest", "Plusieurs zones")),
-                             
-                             checkboxGroupInput(inputId = "species", label = "Sélectionner une espèce", choices = levels(iris$Species))
-                             
-            )
-            
-            )),
-  
-  plotOutput('plot1'),
-  
-  nav_panel("Rayon produits frais", p("Content for Page 2")),
-  
-  nav_panel("Page 3", p("Content for Page 3")))
+ sidebar =  sidebarPanel(width = 12,
+               
+               checkboxGroupInput(
+                 "checkGroup",
+                 "Sélectionnez la division",
+                 choices = list("Division 1" = 1, "Division 2" = 2, "Division 3" = 3, "Division 4" = 4),
+                 selected = 1)),
 
+  
+  nav_panel("Classements", p(
+    
+    
+    card(
+      card_header("Classement division 1"),
+      
+    ),
+    
+    card(
+      card_header("Classement division 2"),
+      
+    ),
+   
+                             
+                             )),
+  
+  nav_panel("Top joueurs", p("Content for Page ")),
+  
+  nav_panel("Nos footballeurs dans le monde", p("Content for Page 2")),
+  
+)
+  
 
 server <- function(input, output) {
   output$plot1 <- renderPlot({
