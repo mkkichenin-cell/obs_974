@@ -37,10 +37,7 @@ ui <- page_navbar(
       
     ),
     
-    card(
-      card_header("Classement division 2"),
-      
-    ),
+  
    
                              
                              )),
