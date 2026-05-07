@@ -12,12 +12,15 @@ library(mapdata)
 library(treemap)
 library(treemapify)
 library(cowplot)
-library(tidyverse)
 library(ggplot2)
 library(leaflet)
+library(ggmap)
+library(sf)
+library(viridis)
 
-world_coord <- map_data("world")
-as.data.frame(world_coord)
+
+ile <- read_sf(dsn ="C:\\Users\\micha\\Documents\\obs_974\\communes\\communesPolygon.shp",layer = "communesPolygon")
+
 
 ui <- page_navbar( 
   title = "STATS FOOTBALL974 by Michaël KICHENIN",
@@ -25,13 +28,19 @@ ui <- page_navbar(
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
   
- sidebar =  sidebarPanel(width = 12,
+ sidebar =  sidebarPanel(width = 20,
                
                checkboxGroupInput(
                  "checkGroup",
                  "Sélectionnez la division",
                  choices = list("Division 1" = 1, "Division 2" = 2, "Division 3" = 3, "Division 4" = 4),
-                 selected = 1)),
+                 selected = 1),
+               
+               plotOutput("map"),
+               
+               
+               ),
+ 
 
  
  # Première page
@@ -40,7 +49,7 @@ ui <- page_navbar(
     
     
     card(
-      card_header("Classement division 1")
+      card_header("Classement division 1"),
     
     ),
     
@@ -60,7 +69,7 @@ ui <- page_navbar(
   
   nav_panel("Nos footballeurs dans le monde", p(
     
-    leafletOutput("map") 
+
     
   ))
 
@@ -71,10 +80,12 @@ ui <- page_navbar(
   
 
 server <- function(input, output) {
-  output$map <- renderLeaflet({ 
-    leaflet() |> 
-      addTiles() |> 
-      setView(0.34580993652344, 50.6252978589571, zoom = 3) 
+  output$map <- renderPlot({ 
+  
+map <- ggplot(ile) + geom_sf(aes()) + scale_fill_viridis() + theme_minimal() +
+       theme(plot.margin = margin(0.05,0.05,0.05,0.05, "cm"),axis.text.x = element_blank(), axis.text.y = element_blank())
+map   
+    
   }) 
 }
 
