@@ -14,14 +14,14 @@ library(treemapify)
 library(cowplot)
 library(ggplot2)
 library(sf)
-library(viridis)
+library(viridisLite)
 
 
 ile <- read_sf(dsn ="C:\\Users\\micha\\Documents\\obs_974\\communes\\communesPolygon.shp",layer = "communesPolygon")
 
 
 ui <- page_navbar( 
-  title = "STATS_FOOT974 by Michaël KICHENIN",
+  title = "STAta_FOOT974 by Michaël KICHENIN",
   theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
