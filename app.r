@@ -13,7 +13,6 @@ library(treemap)
 library(treemapify)
 library(cowplot)
 library(ggplot2)
-library(ggmap)
 library(sf)
 library(viridis)
 
@@ -22,7 +21,7 @@ ile <- read_sf(dsn ="C:\\Users\\micha\\Documents\\obs_974\\communes\\communesPol
 
 
 ui <- page_navbar( 
-  title = "STATS FOOTBALL974 by Michaël KICHENIN",
+  title = "STATS_FOOT974 by Michaël KICHENIN",
   theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
