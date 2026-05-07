@@ -18,7 +18,7 @@ library(viridisLite)
 library(here)
 
 
-ile <- read_sf(dsn ="C:/Users/micha/Documents/obs_974/communes/communesPolygon.shp",layer = "communesPolygon")
+ile <- read_sf(dsn ="C:/Users/micha/Documents/obs_974/communesPolygon.shp",layer = "communesPolygon")
 
 
 shapefile_path <- here("data", "communes", "communesPolygon.shp")
