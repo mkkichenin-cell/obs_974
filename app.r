@@ -17,7 +17,7 @@ library(sf)
 library(viridisLite)
 
 
-ile <- read_sf(dsn ="C:\\Users\\micha\\Documents\\obs_974\\communes\\communesPolygon.shp",layer = "communesPolygon")
+ile <- read_sf(dsn ="C:/Users/micha/Documents/obs_974/communes/communesPolygon.shp",layer = "communesPolygon")
 
 
 ui <- page_navbar( 
