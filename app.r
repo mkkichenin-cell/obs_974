@@ -18,10 +18,11 @@ library(viridisLite)
 library(here)
 
 
-ile <- read_sf(dsn ="C:/Users/micha/Documents/obs_974/communesPolygon.shp",layer = "communesPolygon")
 
 
-shapefile_path <- here("data", "communes", "communesPolygon.shp")
+shapefile_path <- here("C:/Users/micha/Documents/obs_974", "communesPolygon.shp")
+
+read_sf(dsn ="C:/Users/micha/Documents/obs_974/communesPolygon.shp",layer = "communesPolygon")
 
 ui <- page_navbar( 
   title = "STAta_FOOT974 by Michaël KICHENIN",
