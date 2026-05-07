@@ -12,7 +12,12 @@ library(mapdata)
 library(treemap)
 library(treemapify)
 library(cowplot)
+library(tidyverse)
+library(ggplot2)
+library(leaflet)
 
+world_coord <- map_data("world")
+as.data.frame(world_coord)
 
 ui <- page_navbar( 
   title = "STATS FOOTBALL974 by Michaël KICHENIN",
@@ -28,36 +33,52 @@ ui <- page_navbar(
                  choices = list("Division 1" = 1, "Division 2" = 2, "Division 3" = 3, "Division 4" = 4),
                  selected = 1)),
 
-  
+ 
+ # Première page
+ 
   nav_panel("Classements", p(
     
     
     card(
-      card_header("Classement division 1"),
-      
+      card_header("Classement division 1")
+    
     ),
     
-  
+    card(
+      card_header("Classement division 2")
+    )
+    
    
                              
                              )),
   
+ # Deuxième page
+ 
   nav_panel("Top joueurs", p("Content for Page ")),
+ 
+ # Troisième page
   
-  nav_panel("Nos footballeurs dans le monde", p("Content for Page 2")),
-  
+  nav_panel("Nos footballeurs dans le monde", p(
+    
+    leafletOutput("map") 
+    
+  ))
+
+ # fin corps
+ 
+ 
 )
   
 
 server <- function(input, output) {
-  output$plot1 <- renderPlot({
-    # Plot code here
-  })
+  output$map <- renderLeaflet({ 
+    leaflet() |> 
+      addTiles() |> 
+      setView(0.34580993652344, 50.6252978589571, zoom = 3) 
+  }) 
 }
 
 shinyApp(ui, server)
-
-
 
 
 
