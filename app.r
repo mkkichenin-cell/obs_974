@@ -19,9 +19,9 @@ library(here)
 
 
 
-here("obs_974", "communesPolygon.shx")
 
-file <-system.file("~/obs_974/communesPolygon.shx", package = "sf")
+here::here("obs_974", "communesPolygon.shp")
+
 
 
 
