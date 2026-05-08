@@ -21,13 +21,13 @@ library(jsonlite)
 
 shapefile <-read_sf("communes/communesPolygon.shp")
 
-ui <- page_navbar( 
+ui <- page_sidebar( 
   title = "STAta_FOOT974 by Michaël",
   theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
   
- sidebar =  sidebarPanel(width = 20,
+ sidebar =  sidebarPanel(width = 200,
                
                checkboxGroupInput(
                  "checkGroup",
@@ -35,7 +35,13 @@ ui <- page_navbar(
                  choices = list("Division 1" = 1, "Division 2" = 2, "Division 3" = 3, "Division 4" = 4),
                  selected = 1),
                
-               plotOutput("map"),
+               checkboxGroupInput(
+                 "checkGroup",
+                 "Sélectionnez la division",
+                 choices = list("Nord" = 1, "Est" = 2, "Ouest" = 3, "Sud" = 4),
+                 selected = 1),
+               
+               plotOutput("map", width = 185, height = 200)
                
                
                ),
@@ -82,7 +88,7 @@ server <- function(input, output) {
   output$map <- renderPlot({ 
   
 ggplot(shapefile) + geom_sf(aes()) + theme_minimal() +
-       theme(plot.margin = margin(0.05,0.05,0.05,0.05, "cm"),axis.text.x = element_blank(), axis.text.y = element_blank())
+       theme(plot.margin = margin(0,0,0,0),axis.text.x = element_blank(), axis.text.y = element_blank())
   
     
   }) 
