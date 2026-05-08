@@ -19,9 +19,15 @@ library(here)
 
 
 
-here("obs_974", "communesPolygon.shp")
+here("obs_974", "communesPolygon.shx")
 
-ile <- read_sf("~/obs_974/communesPolygon.shp")
+file <-system.file("~/obs_974/communesPolygon.shx", package = "sf")
+
+
+
+ile <- read_sf("~/obs_974/communesPolygon.shx")
+
+
 
 
 ui <- page_navbar( 
@@ -84,7 +90,7 @@ ui <- page_navbar(
 server <- function(input, output) {
   output$map <- renderPlot({ 
   
-map <- ggplot(ile) + geom_sf(aes()) + scale_fill_viridis() + theme_minimal() +
+map <- ggplot(ile) + geom_sf(aes()) +theme_minimal() +
        theme(plot.margin = margin(0.05,0.05,0.05,0.05, "cm"),axis.text.x = element_blank(), axis.text.y = element_blank())
 map   
     
