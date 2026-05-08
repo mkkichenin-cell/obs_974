@@ -1,0 +1,12 @@
+name: obs_974
+title: obs_974
+username: mkichenin
+account: mkichenin
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 019e069a-1d92-c4ab-7e4d-69c22d160a42
+bundleId:
+url: https://connect.posit.cloud/mkichenin/content/019e069a-1d92-c4ab-7e4d-69c22d160a42
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
