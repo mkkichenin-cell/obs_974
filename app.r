@@ -84,9 +84,9 @@ ui <- page_navbar(
 server <- function(input, output) {
   output$map <- renderPlot({ 
   
-map <- ggplot(shapefile) + geom_sf(aes()) + theme_minimal() +
+ggplot(shapefile) + geom_sf(aes()) + theme_minimal() +
        theme(plot.margin = margin(0.05,0.05,0.05,0.05, "cm"),axis.text.x = element_blank(), axis.text.y = element_blank())
-map   
+  
     
   }) 
 }
