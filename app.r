@@ -17,15 +17,14 @@ library(sf)
 library(viridisLite)
 library(here)
 
-
+getwd("~/obs_974")
 
 
 here::here("obs_974", "communesPolygon.shp")
 
+shapefile <- st_read("~/obs_974/communesPolygon.shp")
 
-
-
-ile <- read_sf("~/obs_974/communesPolygon.shx")
+getwd()
 
 
 
@@ -90,7 +89,7 @@ ui <- page_navbar(
 server <- function(input, output) {
   output$map <- renderPlot({ 
   
-map <- ggplot(ile) + geom_sf(aes()) + theme_minimal() +
+map <- ggplot(shapefile) + geom_sf(aes()) + theme_minimal() +
        theme(plot.margin = margin(0.05,0.05,0.05,0.05, "cm"),axis.text.x = element_blank(), axis.text.y = element_blank())
 map   
     
