@@ -18,7 +18,7 @@ library(viridisLite)
 library(here)
 
 
-setwd("~/obs_974")
+
 current_dir <- getwd()
 print(current_dir)
 
