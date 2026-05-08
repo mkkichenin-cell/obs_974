@@ -16,13 +16,13 @@ library(ggplot2)
 library(sf)
 library(viridisLite)
 library(here)
+library(jsonlite)
 
-
-
+setwd("~/obs_974")
 current_dir <- getwd()
 print(current_dir)
 
-
+shapefile <-read_sf("communes/communesPolygon.shp")
 
 ui <- page_navbar( 
   title = "STAta_FOOT974 by Michaël",
