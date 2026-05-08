@@ -22,13 +22,6 @@ library(here)
 current_dir <- getwd()
 print(current_dir)
 
-here::here("obs_974", "communesPolygon.shp")
-
-shapefile <- st_read("~/obs_974/communesPolygon.shp")
-
-getwd()
-
-
 
 
 ui <- page_navbar( 
