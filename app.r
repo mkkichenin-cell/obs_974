@@ -19,8 +19,9 @@ library(here)
 
 
 
+here("obs_974", "communesPolygon.shp")
 
-shapefile_path <- here("obs_974", "communesPolygon.shp")
+ile <- read_sf("~/obs_974/communesPolygon.shp")
 
 
 ui <- page_navbar( 
