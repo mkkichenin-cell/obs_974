@@ -25,7 +25,7 @@ ile <- read_sf("~/obs_974/communesPolygon.shp")
 
 
 ui <- page_navbar( 
-  title = "STAta_FOOT974 by Michaël KICHENIN",
+  title = "STAta_FOOT974 by Michaël",
   theme = bs_theme(bg = "white", fg = "black", primary = "blue",
                    base_font = font_google("Space Mono"),
                    code_font = font_google("Space Mono")),
