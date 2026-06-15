@@ -17,7 +17,7 @@ library(sf)
 library(viridisLite)
 library(here)
 library(jsonlite)
-library(shinymanager)
+
 
 
 
@@ -34,8 +34,10 @@ shapefile1
 
 
 ui <- page_navbar(
-  title =  "Michaël KICHENIN - DATA ANALYST",
+  title =  "Michaël KICHENIN - DATA ANALYSssssssT 2",
   theme = bs_theme(version = 5, bootswatch = "minty"),
+  
+  
   
  
  # Première page
