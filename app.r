@@ -17,85 +17,205 @@ library(sf)
 library(viridisLite)
 library(here)
 library(jsonlite)
+library(shinymanager)
+
+
 
 
 shapefile <-read_sf("communes/communesPolygon.shp")
+coord <- read_sf ("qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.shp")
+point1 <- read_sf("iris-millesime-france/georef-france-iris-millesime.shp") 
 
-ui <- page_navbar( 
-  title =  "STAta_FOOT974 by Michaël",
-  theme = bs_theme(bg = "white", fg = "black", primary = "blue",
-                   base_font = font_google("Space Mono"),
-                   code_font = font_google("Space Mono")),
+shapefile1 <- as.data.frame(shapefile)
+
+shapefile1 <- select(shapefile1, 7, 12)
+
+shapefile1
+
+
+ui <- page_navbar(
+  title =  "Michaël KICHENIN - DATA ANALYST",
+  theme = bs_theme(version = 5, bootswatch = "minty"),
   
- sidebar =  sidebarPanel(
-               
-               width = 200,
-               
-               imageOutput("image", height = 150), 
-               
-               checkboxGroupInput(
-                 "checkGroup",
-                 "Sélectionnez la division",
-                 choices = list("Division 1" = 1, "Division 2" = 2, "Division 3" = 3, "Division 4" = 4),
-                 selected = 1),
-               
-               checkboxGroupInput(
-                 "checkGroup",
-                 "Sélectionnez la division",
-                 choices = list("Nord" = 1, "Est" = 2, "Ouest" = 3, "Sud" = 4),
-                 selected = 1),
-               
-               plotOutput("map", width = 185, height = 200)
-               
-               
-               ),
- 
-
  
  # Première page
  
-  nav_panel("Classements", p(
+  nav_panel("CV",
+            
+            p(
     
     layout_column_wrap(
-    value_box(title = "Nombre de club", value = "", height = 50),
-    value_box(title = "Nombre de club", value = ""),
-    value_box(title = "Nombre de club", value = ""),
+      
+      width = 5,
+      
+      card(
+        
+        width = 10,
+        
+        layout_column_wrap(
+        
+        imageOutput("image", height = 140),
+      
+          
+        value_box( title ="",
+                   value = "mk.kichenin@gmail.com", height = 1, 
+                   theme = "blue",
+                   showcase = bs_icon("envelope-at", size = 20)),
+        
+        value_box("Téléphone", 
+                  value = "0693 21 63 90", height = 1,
+                  theme = "blue",
+                  showcase = bs_icon("phone", size = 50))
+        
+        ),
+      
+        layout_column_wrap(
+          
+        imageOutput("r", height = 140),
+        
+        value_box("Saint-Denis",
+                  value = "8 chemin de la comète", height = 0.7 ,
+                  theme = "blue",
+                  showcase = bs_icon("house", size = 40),
+                  showcase_layout = "top right" ),
+        
+        value_box("Naissance", 
+                  value = "09/05/1988", height = 0.7, 
+                  theme = "blue",
+                  showcase = bs_icon("cake", size = 40),
+                  showcase_layout = "top right")
+        ),
+      ),
+
+      
+    card (card_header("Expériences professionnelles"),
+          value_box("2026: Maison De l'Emploi du Nord ", 
+                    value = "Chargé de mission d'observatoire", height = 5,
+                    theme = ""),
+          
+          value_box("2019 à 2025: Run Conseil, SAGIS, Etude et Marketing Réunion... ", 
+                    value = "Agent de collecte de données", height = 5,
+                    theme = ""),
+          
+          value_box("2012 à 2015: RSMA de la Réunion  ", 
+                    value = "Aide moniteur agent administratif", height = 5,
+                    theme = ""),
+          
+          
+          ),
     ),
+    
     
     layout_column_wrap(
     
-    card(
-      card_header("Classement division 1"),
+      card( card_header("Diplôme"), 
+                             value_box( 
+                             value = "Master Economie Appliquée", height = 40, 
+                             showcase = bs_icon("mortarboard"),
+                             theme = "",
+                             p("Université de la Réunion"),
+                             p("Spécialité: Méthode quantitative et modélisation pour l'entreprise")),
+            
+            value_box( 
+              value = "Licence Admnistration Economie et Sociale  ", height = 40, 
+              showcase = bs_icon("dash"),
+              p("Université de la Réunion"),
+              theme = ""),
+        ),
     
-    ),
-    
-    card(
-      card_header("Classement division 2")
-    ),
-    
-    card(
-      card_header("Classement division 3")
-    ),
-    
-    card(
-      card_header("Classement division 4")
-    )
-    
+ 
+      card (card_header("Compétences"),
+            
+            value_box( 
+              value = "sondage et stockage  ", height = 38, 
+              showcase = bs_icon("database-check", size = 40),
+              p("Collecte de données"),
+              theme = "orange"),
+            
+            value_box( 
+              value = "Tri, tableaux et graphiques", height = 38, 
+              showcase = bs_icon("graph-up", size = 40),
+              p(" Traitement de données"),
+              theme = "orange"),
+           
+             value_box( 
+              value = "Tableau de bord et cloud   ", height = 38, 
+              showcase = bs_icon("cloud-check", size=40),
+              p("Diffusion de données"),
+              theme = "orange"),
+      
+            value_box( 
+              value = "R studio, Shiny, Github, Posit cloud and IA ", height = 58, 
+              p("Utilisation de R et de ses extensions"),
+              theme = "orange" ),
+            
+      ),
                              
                              ))),
   
  # Deuxième page
  
-  nav_panel("Top joueurs", p("Content for Page ")),
  
+ nav_panel("Tableaux", p(
+   
+
+   
+   layout_column_wrap(
+     
+       navset_card_tab(
+         nav_panel(title = "Présentation", p( layout_column_wrap(dataTableOutput("dynamic"),textOutput("text")))),
+         nav_panel(title = "Projet 1", p("contenu")),
+       
+     ),
+     
+     card(
+       card_header("Classement division 2")
+     )
+     
+   ))),
+ 
+
  # Troisième page
-  
-  nav_panel("Nos footballeurs dans le monde", p(
-    
-
-    
-  ))
-
+ 
+ 
+ nav_panel("Graphiques", p(
+   
+   
+   
+   layout_column_wrap(
+     
+     card(
+       card_header(title = "Classement division 1"),
+       
+     ),
+     
+     card(
+       card_header("Classement division 2")
+     )
+     
+   ))),
+ 
+ # Quatrième page
+ 
+ 
+ nav_panel("Cartes", p(
+   
+   
+   
+   layout_column_wrap(
+     
+     card(
+       card_header(title = "Classement division 1"),
+       
+     ),
+     
+     card(
+       card_header("Classement division 2")
+     )
+     
+   ))),
+ 
+ 
  # fin corps
  
  
@@ -104,20 +224,34 @@ ui <- page_navbar(
 
 server <- function(input, output) {
   
-  output$map <- renderPlot({ 
-  
-ggplot(shapefile) + geom_sf(aes()) + theme_minimal() +
-       theme(plot.margin = margin(0,0,0,0),axis.text.x = element_blank(), axis.text.y = element_blank())
-  
-    }) 
-  
+
+zone_x <- reactive(input$zone)  
+
+
   
   output$image <- renderImage( 
     { 
-      list(src = "balloon-fill.svg", height = "25%") 
+      list(src = "photo.jpg", height = "130%") 
     }, 
     deleteFile = FALSE 
    ) 
+  
+  output$r <- renderImage( 
+    { 
+      list(src = "r.png", height = "120%") 
+    }, 
+    deleteFile = FALSE 
+  ) 
+  
+  output$txt <- renderText("Naissance: 09/05/1988 Adresse: 8 chemin de la comète, Saint-Denis")
+  
+
+output$static <- renderTable(head(coord))
+
+output$text <- renderText("Influencers: The role of Ronaldo in Dalot's career
+Diogo covers conversations with Cristiano, his route to United's first team and the crucial impact of his parents.")
+
+output$dynamic <- renderDataTable(coord, options = list(pageLength= 5))
   
 }
 
