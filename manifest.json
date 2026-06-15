@@ -5107,10 +5107,34 @@
   },
   "files": {
     ".RData": {
-      "checksum": "cd41104ecbe382350552708f0fbcd850"
+      "checksum": "e7afca7e85803938c285fd59fe24b591"
+    },
+    ".RDataTmp": {
+      "checksum": "2bd992c17a1977f188a71c7f32cd9a2b"
+    },
+    ".RDataTmp1": {
+      "checksum": "22ca0f758f47f05dae04e4951856b915"
+    },
+    ".RDataTmp2": {
+      "checksum": "1095ea2b85a98194d120bc017a626b44"
+    },
+    ".RDataTmp3": {
+      "checksum": "2891a7570ed369325bdb65c239cf7417"
+    },
+    ".RDataTmp4": {
+      "checksum": "d6d762985c18a5c83f2a035f49ea4e6b"
+    },
+    ".RDataTmp5": {
+      "checksum": "dd4457b0017389b69d4ae4d4eb36d57e"
+    },
+    ".RDataTmp6": {
+      "checksum": "562016b017ef643bd1b5ee275ec4018e"
     },
     "app.r": {
-      "checksum": "c0c187f6689a58636fc30070ac29ac7e"
+      "checksum": "2ec4beb33701a2a39d4bb5cb0d39249d"
+    },
+    "balloon-fill.svg": {
+      "checksum": "6eba363281bb6c107696ce0149193f5b"
     },
     "communes/communesPolygon.cst": {
       "checksum": "0e4bb4efc30ec129e5003a18ea2103cf"
@@ -5129,6 +5153,69 @@
     },
     "communes/wfsrequest.txt": {
       "checksum": "bb7fa4902fa7815056e33964ab7c51bc"
+    },
+    "coord.csv": {
+      "checksum": "eca0d2c36f3208133543280d907f4181"
+    },
+    "Hantavirus_Andes_Global_Registry.csv": {
+      "checksum": "385ed4aec21afaf5525a953b7ad9f707"
+    },
+    "iris-millesime-france/georef-france-iris-millesime.cpg": {
+      "checksum": "ae3b3df9970b49b6523e608759bc957d"
+    },
+    "iris-millesime-france/georef-france-iris-millesime.dbf": {
+      "checksum": "70f8197594d3549d2e728bc535b4e7f7"
+    },
+    "iris-millesime-france/georef-france-iris-millesime.prj": {
+      "checksum": "e729936bf5360b37a15365fc295a1901"
+    },
+    "iris-millesime-france/georef-france-iris-millesime.shp": {
+      "checksum": "0bb9c8f259b279b03424055e270c54f3"
+    },
+    "iris-millesime-france/georef-france-iris-millesime.shx": {
+      "checksum": "02c6f2ce79eb6a73124c92e4bd20b1eb"
+    },
+    "photo.jpg": {
+      "checksum": "600c6809ee553dc6863d02d5df90e3aa"
+    },
+    "point1/etablissements-accueil-jeunes-enfants-villesaintdenis.cpg": {
+      "checksum": "ae3b3df9970b49b6523e608759bc957d"
+    },
+    "point1/etablissements-accueil-jeunes-enfants-villesaintdenis.dbf": {
+      "checksum": "544788631ccb53d5766f016ed391b30e"
+    },
+    "point1/etablissements-accueil-jeunes-enfants-villesaintdenis.prj": {
+      "checksum": "e729936bf5360b37a15365fc295a1901"
+    },
+    "point1/etablissements-accueil-jeunes-enfants-villesaintdenis.shp": {
+      "checksum": "d88f6f1b2f741b2d96ac6d1801d66d1f"
+    },
+    "point1/etablissements-accueil-jeunes-enfants-villesaintdenis.shx": {
+      "checksum": "b99cd9c09374d2363257a83ae5fdddcf"
+    },
+    "point2.csv": {
+      "checksum": "f08bdf7ec59151827b4c33720aa3f893"
+    },
+    "qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.cpg": {
+      "checksum": "ae3b3df9970b49b6523e608759bc957d"
+    },
+    "qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.dbf": {
+      "checksum": "143f69fd0cca551844c9e02853b68052"
+    },
+    "qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.prj": {
+      "checksum": "e729936bf5360b37a15365fc295a1901"
+    },
+    "qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.shp": {
+      "checksum": "62328a61a061b8b98bddc66fd5206540"
+    },
+    "qpv/quartiers-prioritaires-de-la-politique-de-la-ville-qpv.shx": {
+      "checksum": "bf244f5edff50a46c5be6bcb4ee5342e"
+    },
+    "r.jpg": {
+      "checksum": "2dc659a3ef1dc3e30b7acb3225a4a084"
+    },
+    "r.png": {
+      "checksum": "a8370f43a522b3f1a4d626522df5212f"
     }
   },
   "users": null
