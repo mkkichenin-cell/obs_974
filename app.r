@@ -17,9 +17,7 @@ library(sf)
 library(viridisLite)
 library(here)
 library(jsonlite)
-
-
-
+library(shinymanager)
 
 
 
@@ -33,12 +31,25 @@ shapefile1 <- select(shapefile1, 7, 12)
 
 shapefile1
 
+# define some basic credentials (on data.frame)
+credentials <- data.frame(
+  user = c("shiny", "shinymanager"), # mandatory
+  password = c("azerty", "12345"), # mandatory
+  start = c("2019-04-15"), # optinal (all others)
+  expire = c(NA, "2040-12-31"),
+  admin = c(FALSE, TRUE),
+  comment = "Simple and secure authentification mechanism 
+  for single ‘Shiny’ applications.",
+  stringsAsFactors = FALSE
+)
+
 
 ui <- page_navbar(
   title =  "Michaël KICHENIN - DATA ANALYSssssssT 2",
   theme = bs_theme(version = 5, bootswatch = "minty"),
   
-  
+  tags$h2("My secure application"),
+  verbatimTextOutput("auth_output"),
   
  
  # Première page
@@ -59,17 +70,19 @@ ui <- page_navbar(
         
         imageOutput("image", height = 140),
       
+        
+  
           
-        value_box( title ="",
-                   value = "mk.kichenin@gmail.com", height = 1, 
+        value_box( title ="Email",
+                   value = uiOutput("mail"), height = 1, 
                    theme = "blue",
                    showcase = bs_icon("envelope-at", size = 20)),
         
         value_box("Téléphone", 
-                  value = "0693 21 63 90", height = 1,
+                  value = uiOutput("0693 21 63 90"), height = 1,
                   theme = "blue",
                   showcase = bs_icon("phone", size = 50))
-        
+    
         ),
       
         layout_column_wrap(
@@ -224,8 +237,20 @@ ui <- page_navbar(
  
 )
   
+ui <- secure_app(ui)
+
 
 server <- function(input, output) {
+  
+  # call the server part
+  # check_credentials returns a function to authenticate users
+  res_auth <- secure_server(
+    check_credentials = check_credentials(credentials)
+  )
+  
+  output$auth_output <- renderPrint({
+    reactiveValuesToList(res_auth)
+  })
   
 
 zone_x <- reactive(input$zone)  
