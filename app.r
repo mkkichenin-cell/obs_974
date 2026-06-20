@@ -17,6 +17,7 @@ library(sf)
 library(viridisLite)
 library(here)
 library(jsonlite)
+library(rsconnect)
 library(shinymanager)
 
 
@@ -284,8 +285,5 @@ output$dynamic <- renderDataTable(coord, options = list(pageLength= 5))
 }
 
 shinyApp(ui, server)
-
-
-
 
 
